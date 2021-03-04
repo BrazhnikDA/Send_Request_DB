@@ -13,28 +13,31 @@ namespace Send_request
 {
     public partial class MainWindow : Window
     {
-        private SettingsDBConnection settings;                  // Хранит поля подключения
-        private BindingList<ListModel> _todoData;               // Таблица
+        private SettingsDBConnection   settings;                    // Хранит поля подключения
+        private BindingList<ListModel> _todoData;                   // Таблица
        
-        private string connectionInfo;                          // Строка для подключения к БД
-        private bool IsConnection;                              // true - подключенно / false - неудача
-        private string zapros;                                  // Строка для хранения запроса
-        private string pathForCreateFile;                       // Путь до созданного файла
-        private string pathForFolder;
+        private string  connectionInfo;                             // Строка для подключения к БД
+        private bool    IsConnection;                               // true - подключенно / false - неудача
+        private string  zapros;                                     // Строка для хранения запроса
+        private string  pathForCreateFile;                          // Путь до созданного файла
+        private string  pathForFolder;
 
-        List<string> allID = new List<string>() { "" };         // Для хранения всех numbers из файла 
-        List<string> allSectors = new List<string>() { "" };    // Для хранения всех sectors из файла
-        List<string> allAmount = new List<string>() { "" };     // Для хранения всех amount  из файла
+        List<string> allID      = new List<string>() { "" };         // Для хранения всех numbers из файла 
+        List<string> allSectors = new List<string>() { "" };         // Для хранения всех sectors из файла
+        List<string> allAmount  = new List<string>() { "" };         // Для хранения всех amount  из файла
 
-        List<string> zaprosID = new List<string>() { "" };
-        List<string> zaprosSectors = new List<string>() { "" };
-        List<string> zaprosAmount = new List<string>() { "" };
+        List<string> zaprosID       = new List<string>() { "" };     // Для хранения numbers после запроса в БД
+        List<string> zaprosSectors  = new List<string>() { "" };     // Для хранения sectors после запроса в БД
+        List<string> zaprosAmount   = new List<string>() { "" };     // Для хранения amount  после запроса в БД
 
-        public MainWindow(string zapros_,string pathCreateFile, List<string> id, List<string> sectors, List<string> amount)
+        public MainWindow(string zapros_, string pathSourceFiles, List<string> id, List<string> sectors, List<string> amount)
         {
             InitializeComponent();
 
-            pathForFolder = pathCreateFile;
+            SaveTextFile(zapros_, "Запрос", pathSourceFiles);
+
+
+            pathForFolder = pathSourceFiles;        // Путь до исходных файлов содержит начало пути до нужной папки
 
             allID = id;
             allSectors = sectors;
@@ -105,7 +108,11 @@ namespace Send_request
 
         public void Connect_DataBase()
         {
+            // Перед новым запросом чистим память
             _todoData.Clear();
+            zaprosID.Clear();
+            zaprosSectors.Clear();
+            zaprosAmount.Clear();
             try
             {
                 buttonStart.Visibility = Visibility.Hidden;
@@ -123,8 +130,10 @@ namespace Send_request
                 MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlDataAdapter.Fill(dataTable);
 
+                string tmpZapros = "";
                 for (int i = 0; i < dataTable.Rows.Count; i++)
                 {
+                    tmpZapros += dataTable.Rows[i][1].ToString() + " " + dataTable.Rows[i][2].ToString() + " " + dataTable.Rows[i][4].ToString() + "\n";
                     _todoData.Add(new ListModel()
                     {
                         Date = dataTable.Rows[i][0].ToString(),
@@ -137,6 +146,8 @@ namespace Send_request
                     zaprosSectors.Add(dataTable.Rows[i][2].ToString());
                     zaprosAmount.Add(dataTable.Rows[i][4].ToString());
                 }
+
+                SaveTextFile(tmpZapros, "Таблица после запроса", pathForFolder); // Сохранить запрос
 
                 dgPassList.ItemsSource = _todoData;
 
@@ -286,22 +297,44 @@ namespace Send_request
         {
             MessageBox.Show("В файле: " + ((allID.Count - 1) - FindSeparatorinText()).ToString() + "\nВ запросе: " + (zaprosID.Count - 1).ToString(), "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
             // 1 строка у запрос ID = пустота. Поэтому -1
+
             _todoData.Clear();
             int error = 0;
+
+            string tmpAllIDError   = "";
+            string tmpAllIDSuccess = "";
+
             for (int i = 0; i < allID.Count; i++)
             {
-                if (FindSubStringID(allID[i], allSectors[i], allAmount[i])) { }
-                else
+                switch(FindSubStringID(allID[i], allSectors[i], allAmount[i]))
                 {
-                    _todoData.Add(new ListModel()
-                    {
-                        Card = allID[i].ToString(),
-                        Sector = allSectors[i].ToString(),
-                        Summa = allAmount[i].ToString()
-                    });
-                    error++;
+                    case 0:
+                        tmpAllIDSuccess += allID[i].ToString() + " " + allSectors[i].ToString() + " " + allAmount[i].ToString() + "\n";
+                        break;
+                    case 1:
+                        break;
+                    case -1:
+                        _todoData.Add(new ListModel()
+                        {
+                            Card = allID[i].ToString(),
+                            Sector = allSectors[i].ToString(),
+                            Summa = allAmount[i].ToString()
+                        });
+                        tmpAllIDError += allID[i].ToString() + " " + allSectors[i].ToString() + " " + allAmount[i].ToString() + "\n";
+                        error++;
+                        break;
+                    case -100:
+                        i = allID.Count;
+                        break;
+                    default:
+                        i = allID.Count;
+                        break;
                 }
+                
             }
+
+            SaveTextFile(tmpAllIDError, "Строки непрошедшие проверку", pathForFolder);
+            SaveTextFile(tmpAllIDSuccess, "Хорошие строки", pathForFolder);
 
             if (error > 0) 
             { 
@@ -316,31 +349,38 @@ namespace Send_request
             VisiblyButton(false);
         }
 
-        private bool FindSubStringID(string ID, string Sector, string Amount)   
+        private int FindSubStringID(string ID, string Sector, string Amount)   // 0 - прошла, -1 - ошибка, 1 - палочка или пустота, -100 - вышли за пределы массива
         {
-            if (ID == "|" || ID == "")
-                return true;
-            for (int i = 0; i < zaprosID.Count; i++)
+            try
             {
-                if (zaprosID[i].ToString() == ID)
+                if (ID == "|" || ID == "")
+                    return 1;
+                for (int i = 0; i < zaprosID.Count; i++)
                 {
-                    if (zaprosSectors[i].ToString() == Sector)
+                    if (zaprosID[i].ToString() == ID)
                     {
-                        // zaprosAmount[i] = "-2300,500"; - Пример тестовой ситуации
-                        // Отделяем целую часть, берём модуль числа, сравниваем с запросом из БД сконвертировав в строку 
-                        String[] intPartAmount = zaprosAmount[i].Split(',');
-                        int delMinus = Math.Abs(Convert.ToInt32(intPartAmount[0]));
-                        if (delMinus.ToString() == Amount)
+                        if (zaprosSectors[i].ToString() == Sector)
                         {
-                            return true;
+                            // zaprosAmount[i] = "-2300,500"; - Пример тестовой ситуации
+                            // Отделяем целую часть, берём модуль числа, сравниваем с запросом из БД сконвертировав в строку 
+                            String[] intPartAmount = zaprosAmount[i].Split(',');
+                            int delMinus = Math.Abs(Convert.ToInt32(intPartAmount[0]));
+                            if (delMinus.ToString() == Amount)
+                            {
+                                return 0;
+                            }
                         }
                     }
                 }
+                return -1;
+            }catch
+            {
+                MessageBox.Show("При проверке мы вышли за пределы массива.","Ошибка",MessageBoxButton.OK,MessageBoxImage.Error);
+                return -100;
             }
-            return false;
         }
 
-        private int FindSeparatorinText()
+        private int FindSeparatorinText()   // Возвращает количество разделителей в тексте
         {
             int count = 0;
             for(int i =  0; i < allID.Count; i++)
@@ -351,6 +391,29 @@ namespace Send_request
                 }
             }
             return count;
+        }   
+
+        private bool SaveTextFile(string text, string NameFile, string path)
+        {
+            try
+            {
+                if (!Directory.Exists(path + "\\Файлы")) // Если папки нет - создаем
+                {
+                    Directory.CreateDirectory(path + "\\Файлы");
+                }
+
+                FileStream fs = File.Create(path + "\\Файлы" + "\\" + NameFile + ".txt");
+                StreamWriter writer = new StreamWriter(fs);
+                writer.Write(text);
+
+                writer.Close();
+                return true;
+            }
+            catch
+            {
+                MessageBox.Show("Файл " + NameFile + " не был сохранён.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
         }
     }
 }
