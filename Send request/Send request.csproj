@@ -209,12 +209,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\Bold.png" />
-    <Resource Include="Image\Disketa.jpg" />
-    <Resource Include="Image\folder.jpg" />
-    <Resource Include="Image\Italic.png" />
     <Resource Include="Image\Play.png" />
-    <Resource Include="Image\Underline.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icons\database.ico" />
