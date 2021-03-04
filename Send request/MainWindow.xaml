@@ -25,7 +25,7 @@
                 <MenuItem Width="2" ></MenuItem>
                 <MenuItem x:Name="btnCheck" BorderBrush="Black" Header="Проверка" FontWeight="Bold" Height="29" Width="74" Click="MenuItem_Click_CheckFiles" />
             </Menu>
-            <DataGrid x:Name="dgPassList" CanUserAddRows="False" FontSize="20px" AutoGenerateColumns="False" Margin="-2,29,0.333,-1.333" HorizontalGridLinesBrush="#FF0B0B0B" VerticalGridLinesBrush="#FF0B0B0B" Grid.ColumnSpan="3" >
+            <DataGrid x:Name="dgPassList" SelectionUnit="Cell" CanUserAddRows="False" FontSize="20px" AutoGenerateColumns="False" Margin="-2,29,0.333,-1.333" HorizontalGridLinesBrush="#FF0B0B0B" VerticalGridLinesBrush="#FF0B0B0B" Grid.ColumnSpan="3" >
 
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Дата"  Width="180" Binding="{Binding Date}" IsReadOnly="True" />
@@ -34,6 +34,7 @@
                     <DataGridTextColumn Header="Операция" Width="110" Binding="{Binding Operations}" IsReadOnly="True"/>
                     <DataGridTextColumn Header="Сумма" Width="*" Binding="{Binding Summa}" IsReadOnly="True"/>
                 </DataGrid.Columns>
+
                 <DataGrid.ContextMenu>
                     <ContextMenu>
                         <MenuItem Command="Copy" Header="Copy" />
