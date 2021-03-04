@@ -1,0 +1,68 @@
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\Send request.exe.config
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\Send request.exe
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\Send request.pdb
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\ChilkatDotNet47.dll
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\Google.Protobuf.dll
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\MySql.Data.dll
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\Newtonsoft.Json.dll
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\Renci.SshNet.dll
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\System.Buffers.dll
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\System.Memory.dll
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\System.Text.Json.dll
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\System.ValueTuple.dll
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\Tamir.SharpSSH.dll
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\Zstandard.Net.dll
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\DiffieHellman.dll
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\Org.Mentalis.Security.dll
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\Google.Protobuf.pdb
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\Google.Protobuf.xml
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\Microsoft.WindowsAPICodePack.xml
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\MySql.Data.xml
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\Newtonsoft.Json.xml
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\Renci.SshNet.xml
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\System.Buffers.xml
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\System.Memory.xml
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\System.Text.Json.xml
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\DIMA\source\repos\Send request_old\Send request\bin\Debug\System.ValueTuple.xml
+C:\Users\DIMA\source\repos\Send request_old\Send request\obj\Debug\Send request.csprojAssemblyReference.cache
+C:\Users\DIMA\source\repos\Send request_old\Send request\obj\Debug\BuildingFiles.g.cs
+C:\Users\DIMA\source\repos\Send request_old\Send request\obj\Debug\MainWindow.g.cs
+C:\Users\DIMA\source\repos\Send request_old\Send request\obj\Debug\Settings.g.cs
+C:\Users\DIMA\source\repos\Send request_old\Send request\obj\Debug\SettingsSFTP.g.cs
+C:\Users\DIMA\source\repos\Send request_old\Send request\obj\Debug\App.g.cs
+C:\Users\DIMA\source\repos\Send request_old\Send request\obj\Debug\Send request_MarkupCompile.cache
+C:\Users\DIMA\source\repos\Send request_old\Send request\obj\Debug\Send request_MarkupCompile.lref
+C:\Users\DIMA\source\repos\Send request_old\Send request\obj\Debug\App.baml
+C:\Users\DIMA\source\repos\Send request_old\Send request\obj\Debug\BuildingFiles.baml
+C:\Users\DIMA\source\repos\Send request_old\Send request\obj\Debug\MainWindow.baml
+C:\Users\DIMA\source\repos\Send request_old\Send request\obj\Debug\Settings.baml
+C:\Users\DIMA\source\repos\Send request_old\Send request\obj\Debug\SettingsSFTP.baml
+C:\Users\DIMA\source\repos\Send request_old\Send request\obj\Debug\StylesButton.baml
+C:\Users\DIMA\source\repos\Send request_old\Send request\obj\Debug\Send request.g.resources
+C:\Users\DIMA\source\repos\Send request_old\Send request\obj\Debug\Send_request.Properties.Resources.resources
+C:\Users\DIMA\source\repos\Send request_old\Send request\obj\Debug\Send request.csproj.GenerateResource.cache
+C:\Users\DIMA\source\repos\Send request_old\Send request\obj\Debug\Send request.csproj.CoreCompileInputs.cache
+C:\Users\DIMA\source\repos\Send request_old\Send request\obj\Debug\Send request.csproj.CopyComplete
+C:\Users\DIMA\source\repos\Send request_old\Send request\obj\Debug\Send request.exe
+C:\Users\DIMA\source\repos\Send request_old\Send request\obj\Debug\Send request.pdb
