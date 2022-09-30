@@ -1,0 +1,46 @@
+﻿<Window x:Class="Send_request.NewZapros"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Send_request"
+        mc:Ignorable="d"
+       WindowStartupLocation="CenterScreen"
+        Title="Новый запрос" Icon="Icons/zapros.ico" Height="450" Width="800">
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed" />
+        <CommandBinding Command="ApplicationCommands.Save" Executed="Save_Executed" />
+    </Window.CommandBindings>
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top">
+            <Button Command="ApplicationCommands.Open">
+                <Image Source="Image/folder.jpg" Width="16" Height="16"/>
+            </Button>
+            <Button Command="ApplicationCommands.Save">
+                <Image Source="Image/Disketa.jpg" Width="16" Height="16"/>
+            </Button>
+            <Separator />
+            <ToggleButton Command="EditingCommands.ToggleBold" Name="btnBold">
+                <Image Source="Image/Bold.png" Width="16" Height="16" />
+            </ToggleButton>
+            <ToggleButton Command="EditingCommands.ToggleItalic" Name="btnItalic">
+                <Image Source="Image/Italic.png" Width="16" Height="16" />
+            </ToggleButton>
+            <ToggleButton Command="EditingCommands.ToggleUnderline" Name="btnUnderline">
+                <Image Source="Image/Underline.png" Width="16" Height="16" />
+            </ToggleButton>
+            <Separator />
+            <ComboBox Name="cmbFontFamily" Width="150" SelectionChanged="cmbFontFamily_SelectionChanged" />
+            <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" />
+
+            <ToggleButton Name="btnRun" Background="LightGreen" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" Click="Image_MouseDown">
+                <Image Source="Image/Play.png" Width="82" Height="16" />
+            </ToggleButton>
+        </ToolBar>
+        <ScrollViewer>
+            <StackPanel>
+                <RichTextBox x:Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged" FontSize="15" SpellCheck.IsEnabled="True" Language="EN-EN" KeyDown="HotKeyTriger" FontFamily="Times New Roman" FontStretch="Expanded" />
+            </StackPanel>
+        </ScrollViewer>
+    </DockPanel>
+</Window>

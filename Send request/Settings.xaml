@@ -1,0 +1,33 @@
+﻿<Window x:Class="Send_request.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Send_request"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Настройки БД" Height="562" Width="460" ResizeMode="NoResize" Icon="Icons/settings.ico">
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="293" Margin="10,89,0,0" VerticalAlignment="Top" Width="420"/>
+
+        <Label Content="Настройки БД" HorizontalAlignment="Center" Margin="16,5,10.333,0" VerticalAlignment="Top" FontSize="34" Height="56" Width="287" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+        <TextBox x:Name="TextBoxServer" HorizontalAlignment="Left" Height="31" Margin="130,129,0,0" TextWrapping="Wrap" Text="" FontSize="18" VerticalAlignment="Top" Width="261"/>
+        <Label Content="Сервер: " HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" FontSize="26" Height="51" Width="112"/>
+
+        <TextBox x:Name="TextBoxPort" HorizontalAlignment="Left" Height="31" Margin="130,179,0,0" TextWrapping="Wrap" Text="3306" FontSize="18" VerticalAlignment="Top" Width="261"/>
+        <Label Content="Порт: " HorizontalAlignment="Left" Margin="10,171,0,0" VerticalAlignment="Top" FontSize="26" Height="50" Width="112"/>
+
+        <TextBox x:Name="TextBoxLogin" HorizontalAlignment="Left" Height="31" Margin="130,229,0,0" TextWrapping="Wrap" Text="" FontSize="18" VerticalAlignment="Top" Width="261"/>
+        <Label Content="Логин: " HorizontalAlignment="Left" Margin="10,221,0,0" VerticalAlignment="Top" FontSize="26" Height="50" Width="112"/>
+
+        <PasswordBox x:Name="TextBoxPassword" HorizontalAlignment="Left" Height="31" Margin="130,279,0,0" FontSize="18" VerticalAlignment="Top" Width="261"/>
+        <Label Content="Пароль: " HorizontalAlignment="Left" Margin="10,271,0,0" VerticalAlignment="Top" FontSize="26" Height="50" Width="112"/>
+
+        <TextBox x:Name="TextBoxDataBase" HorizontalAlignment="Left" Height="31" Margin="130,330,0,0" TextWrapping="Wrap" Text="" FontSize="18" VerticalAlignment="Top" Width="261"/>
+        <Label Content="Имя БД: " HorizontalAlignment="Left" Margin="10,321,0,0" VerticalAlignment="Top" FontSize="26" Height="50" Width="112"/>
+
+        <Button Content="Сохранить настройки" HorizontalAlignment="Left" Margin="116,431,0,0" FontSize="20" Background="LightGreen" VerticalAlignment="Top" Width="210" Height="66" Click="Button_Click"/>
+
+    </Grid>
+</Window>
